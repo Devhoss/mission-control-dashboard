@@ -1,0 +1,20 @@
+{
+  "/api/chat-session/route": "app/api/chat-session/route.js",
+  "/api/chat-history/route": "app/api/chat-history/route.js",
+  "/api/cron-health/route": "app/api/cron-health/route.js",
+  "/api/revenue/route": "app/api/revenue/route.js",
+  "/api/system-state/route": "app/api/system-state/route.js",
+  "/api/content-pipeline/route": "app/api/content-pipeline/route.js",
+  "/api/agents/route": "app/api/agents/route.js",
+  "/api/workspaces/route": "app/api/workspaces/route.js",
+  "/api/content-drafts/route": "app/api/content-drafts/route.js",
+  "/api/priorities/route": "app/api/priorities/route.js",
+  "/api/observations/route": "app/api/observations/route.js",
+  "/api/comms-feed/route": "app/api/comms-feed/route.js",
+  "/api/clients/route": "app/api/clients/route.js",
+  "/content/page": "app/content/page.js",
+  "/chat/page": "app/chat/page.js",
+  "/ops/page": "app/ops/page.js",
+  "/agents/page": "app/agents/page.js",
+  "/comms/page": "app/comms/page.js"
+}

@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0c;
+  --color-background-elevated: #0f0f12;
+  --color-background-glass: rgba(255, 255, 255, 0.03);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-muted: rgba(255, 255, 255, 0.04);
+  --color-foreground: #fafafa;
+  --color-foreground-muted: #a1a1aa;
+  --color-primary: #a78bfa;
+  --color-primary-muted: rgba(167, 139, 250, 0.06);
+  --radius-card: 18px;
+  --radius-sm: 8px;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-background-glass);
+    --card-foreground: var(--color-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: #0a0a0c;
+    --muted: var(--color-foreground-muted);
+    --border: var(--color-border-subtle);
+    --radius: var(--radius-card);
+  }
+
+  * {
+    @apply border-[var(--border)];
+  }
+
+  html {
+    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-size: clamp(0.625rem, 0.75vw, 0.875rem);
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: var(--color-primary-muted);
+    color: var(--color-foreground);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background-elevated);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  /* Glass texture overlay (very subtle) */
+  .glass-texture::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--color-background-glass);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-card);
+  }
+
+  .nav-item-active {
+    color: var(--color-primary);
+    background: var(--color-primary-muted);
+  }
+}
